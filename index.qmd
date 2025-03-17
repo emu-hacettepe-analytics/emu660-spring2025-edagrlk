@@ -1,9 +1,13 @@
 ---
-title: "Welcome to my web page!"
+title: "Welcome to My Analytics Lab!"
 ---
 
-Hello!! My name is Eda Hilal Akbulut.
+Hello, I’m **Eda Hilal Akbulut**, and this website showcases my work in **data analytics, research, and technology.**  
 
-This is my personal webpage.
+My key areas of expertise:
+📊 Data analysis and visualization  
+📈 Predictive modeling and machine learning  
+📚 Research in decision-making processes  
 
-Please stay tuned to follow my works on data analytics, blog posts, and more.
+I use this platform to share my work, case studies, and insights on **how data shapes our world**.  
+For professional inquiries, feel free to connect!  
