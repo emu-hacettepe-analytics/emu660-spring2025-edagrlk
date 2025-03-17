@@ -18,20 +18,20 @@ sidebar: false
 
 ## Internships
 
-1.  Firm aaa, position xx, year xxx
+1.  Bozankaya, Intern in Production Department, August 2019
 
-2.  Firm bbb, position yyy, year yyy
+2.  TUSAŞ, Intern in Production Department, August 2020
 
-# Projects
-
-1.  TUBİTAK 1001..........................
+3.  FNSS, Intern in Production Planning & Inventory Control, November 2020 - June 2021
 
 # Publications
 
-1.  Dasdemir, E., Batta, R., Koksalan, M., Tezcaner Ozturk, D. (2022) “UAV Routing for Reconnaissance Mission: A Multi-Objective Orienteering Problem with Time-Dependent Prizes and Multiple Connections”, Computers & Operations Research, 145: 105882.
+1. Dönmez, H. K., Eray, Y., Gültekin, M., Gürlük, E. H., Testik, Ö. M., & Koçak, S. (2021). Modelling of Pilot Decision Making Mechanism by Using Fuzzy Logic. 11th Ankara International Aerospace Conference (AIAC-2021-095), 8-10 September 2021, METU, Ankara, Turkey.
 
 # Competencies
 
 R, Quarto, Git, Python
 
 # Hobbies
+
+Passionate about discovering new cultures through travel, enjoying various music genres, and continuously learning through books and documentaries. Interested in photography and culinary experiences.
