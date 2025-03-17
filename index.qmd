@@ -1,8 +1,8 @@
 ---
-title: "Welcome to My Analytics Lab"
+title: "Welcome to my web page!"
 ---
 
-Hello!! My name is xxx xxxx.
+Hello!! My name is Eda Hilal Akbulut.
 
 This is my personal webpage.
 
