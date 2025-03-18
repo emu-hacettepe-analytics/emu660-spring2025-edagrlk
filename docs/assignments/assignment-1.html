@@ -225,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
   <ul class="collapse">
-  <li><a href="#key-insights" id="toc-key-insights" class="nav-link" data-scroll-target="#key-insights">Key Insights</a></li>
+  <li><a href="#key-points" id="toc-key-points" class="nav-link" data-scroll-target="#key-points">Key Points</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -448,7 +448,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(na_random_filled)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  1.000   1.000   2.000   2.297   3.000   7.000 </code></pre>
+  1.000   1.000   2.000   2.327   3.000   7.000 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>comparison <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Method =</span> <span class="fu">c</span>(<span class="st">"Original Dataset"</span>, <span class="st">"Median Imputation"</span>, <span class="st">"Random Imputation"</span>),</span>
@@ -484,7 +484,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Random Imputation</td>
-<td style="text-align: right;">2.297000</td>
+<td style="text-align: right;">2.327000</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">7</td>
 </tr>
@@ -497,47 +497,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this analysis, we explored two different methods for handling missing values in the <code>na_example</code> dataset:<br>
 - <strong>Median Imputation:</strong> Replacing missing values with the median of the dataset.<br>
 - <strong>Random Imputation:</strong> Filling missing values with randomly selected non-missing values from the dataset.</p>
-<p>The table below summarizes the impact of these two methods on the dataset:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Method</th>
-<th>Mean</th>
-<th>Median</th>
-<th>Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Original Dataset</strong></td>
-<td>2.302</td>
-<td>2</td>
-<td>7</td>
-</tr>
-<tr class="even">
-<td><strong>Median Imputation</strong></td>
-<td>2.258</td>
-<td>2</td>
-<td>7</td>
-</tr>
-<tr class="odd">
-<td><strong>Random Imputation</strong></td>
-<td>2.290</td>
-<td>2</td>
-<td>7</td>
-</tr>
-</tbody>
-</table>
-<section id="key-insights" class="level3">
-<h3 class="anchored" data-anchor-id="key-insights">Key Insights</h3>
+<p>The table summarizes the impact of these two methods on the dataset.</p>
+<section id="key-points" class="level3">
+<h3 class="anchored" data-anchor-id="key-points">Key Points</h3>
 <ul>
-<li><strong>Median imputation</strong> is a consistent approach that ensures stability in the dataset. However, it reduces variability because all missing values are replaced with the same number.<br>
+<li><strong>Median imputation</strong> is a simple and consistent method. However, it reduces variability because all missing values are replaced with the same number.<br>
 </li>
-<li><strong>Random imputation</strong> preserves the natural distribution of the dataset by introducing variation, but it also adds randomness, which may not always be desirable.<br>
-</li>
-<li><strong>Choosing the best method depends on the context.</strong> If maintaining consistency is more important, median imputation is a better choice. If preserving the original distribution is a priority, random imputation is preferable.</li>
+<li><strong>Random imputation</strong> keeps the dataset’s natural variety but introduces randomness, which may not always be ideal.</li>
+<li><strong>Choosing the best method depends on the purpose of the analysis.</strong> If maintaining consistency is more important, median imputation is a better choice. If preserving the original distribution is a priority, random imputation is preferable.</li>
 </ul>
-<p>Ultimately, the selection of an appropriate method should be based on the dataset’s characteristics and the goals of the analysis.</p>
+<p>Choosing the right method depends on the data and what we want to achieve with it.</p>
 
 
 </section>
