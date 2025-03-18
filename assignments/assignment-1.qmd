@@ -8,8 +8,35 @@ title: "Assignment 1"
 1 + 1
 ```
 
-My first assignment has two parts.
+My first assignment has three parts.
 
 ## (a)
 
-## (b)
+## (b)  
+
+# Exploring Statistical Summaries of ‘mtcars’ dataset
+
+```{r}
+data(mtcars)
+
+compute_stats <- function(x) {
+  c(
+    mean = mean(x, na.rm = TRUE),
+    median = median(x, na.rm = TRUE),
+    variance = var(x, na.rm = TRUE),
+    IQR = IQR(x, na.rm = TRUE),
+    min = min(x, na.rm = TRUE),
+    max = max(x, na.rm = TRUE)
+  )
+}
+
+result <- sapply(mtcars, compute_stats)
+
+library(knitr)
+kable(t(result), caption = "mtcars Data Set Summary")
+```
+
+
+
+
+
