@@ -1,0 +1,143 @@
+[
+  {
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "Project X",
+    "section": "",
+    "text": "Welcome to my/our project page.\nKeep an eye on this space to stay updated with my project activities.\n(The titles below are provided as examples; please feel free to adjust them as necessary.)"
+  },
+  {
+    "objectID": "project.html#data-source",
+    "href": "project.html#data-source",
+    "title": "Project X",
+    "section": "2.1 Data Source",
+    "text": "2.1 Data Source\nxxxxxx"
+  },
+  {
+    "objectID": "project.html#general-information-about-data",
+    "href": "project.html#general-information-about-data",
+    "title": "Project X",
+    "section": "2.2 General Information About Data",
+    "text": "2.2 General Information About Data\nxxxxxx"
+  },
+  {
+    "objectID": "project.html#reason-of-choice",
+    "href": "project.html#reason-of-choice",
+    "title": "Project X",
+    "section": "2.3 Reason of Choice",
+    "text": "2.3 Reason of Choice\nxxxxxx"
+  },
+  {
+    "objectID": "project.html#preprocessing",
+    "href": "project.html#preprocessing",
+    "title": "Project X",
+    "section": "2.4 Preprocessing",
+    "text": "2.4 Preprocessing\nxxxxxx"
+  },
+  {
+    "objectID": "project.html#exploratory-data-analysis",
+    "href": "project.html#exploratory-data-analysis",
+    "title": "Project X",
+    "section": "3.1 Exploratory Data Analysis",
+    "text": "3.1 Exploratory Data Analysis\nxxxxxx"
+  },
+  {
+    "objectID": "project.html#trend-analysis",
+    "href": "project.html#trend-analysis",
+    "title": "Project X",
+    "section": "3.2 Trend Analysis",
+    "text": "3.2 Trend Analysis\nxxxxxx"
+  },
+  {
+    "objectID": "project.html#model-fitting",
+    "href": "project.html#model-fitting",
+    "title": "Project X",
+    "section": "3.3 Model Fitting",
+    "text": "3.3 Model Fitting\nxxxxxx"
+  },
+  {
+    "objectID": "project.html#results",
+    "href": "project.html#results",
+    "title": "Project X",
+    "section": "3.4 Results",
+    "text": "3.4 Results\nxxxxxx"
+  },
+  {
+    "objectID": "about.html#employements",
+    "href": "about.html#employements",
+    "title": "About Me",
+    "section": "Employements",
+    "text": "Employements\n\nASELSAN, Project Engineer, 2021 - ongoing."
+  },
+  {
+    "objectID": "about.html#internships",
+    "href": "about.html#internships",
+    "title": "About Me",
+    "section": "Internships",
+    "text": "Internships\n\nBozankaya, Intern in Production Department, August 2019\nTUSAŞ, Intern in Production Department, August 2020\nFNSS, Intern in Production Planning & Inventory Control, November 2020 - June 2021"
+  },
+  {
+    "objectID": "assignments/assignment-1.html",
+    "href": "assignments/assignment-1.html",
+    "title": "Assignment 1",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2\n\n\nMy first assignment has three parts.",
+    "crumbs": [
+      "Assignment 1"
+    ]
+  },
+  {
+    "objectID": "assignments/assignment-1.html#c",
+    "href": "assignments/assignment-1.html#c",
+    "title": "Assignment 1",
+    "section": "(c)",
+    "text": "(c)",
+    "crumbs": [
+      "Assignment 1"
+    ]
+  },
+  {
+    "objectID": "assignments/assignment-1.html#conclusion",
+    "href": "assignments/assignment-1.html#conclusion",
+    "title": "Assignment 1",
+    "section": "Conclusion",
+    "text": "Conclusion\nIn this analysis, we explored two different methods for handling missing values in the na_example dataset:\n- Median Imputation: Replacing missing values with the median of the dataset.\n- Random Imputation: Filling missing values with randomly selected non-missing values from the dataset.\nThe table below summarizes the impact of these two methods on the dataset:\n\n\n\nMethod\nMean\nMedian\nMax\n\n\n\n\nOriginal Dataset\n2.302\n2\n7\n\n\nMedian Imputation\n2.258\n2\n7\n\n\nRandom Imputation\n2.290\n2\n7\n\n\n\n\nKey Insights\n\nMedian imputation is a consistent approach that ensures stability in the dataset. However, it reduces variability because all missing values are replaced with the same number.\n\nRandom imputation preserves the natural distribution of the dataset by introducing variation, but it also adds randomness, which may not always be desirable.\n\nChoosing the best method depends on the context. If maintaining consistency is more important, median imputation is a better choice. If preserving the original distribution is a priority, random imputation is preferable.\n\nUltimately, the selection of an appropriate method should be based on the dataset’s characteristics and the goals of the analysis.",
+    "crumbs": [
+      "Assignment 1"
+    ]
+  },
+  {
+    "objectID": "assignments.html",
+    "href": "assignments.html",
+    "title": "My Assignments",
+    "section": "",
+    "text": "On this page, I showcase the assignment I conducted for the [term and year, e.g. Spring 2024-2025] EMU660 Decision Making with Analytics course.\nPlease use left menu to navigate through my assignments.\n\n\n\n Back to top",
+    "crumbs": [
+      "My Assignments"
+    ]
+  },
+  {
+    "objectID": "assignments/assignment-2.html",
+    "href": "assignments/assignment-2.html",
+    "title": "Assignment 2",
+    "section": "",
+    "text": "Assignment 2\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Assignment 2"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to My Analytics Lab!",
+    "section": "",
+    "text": "&lt;3\n\n\nHello, I’m Eda Hilal Akbulut, and this website showcases my work in data analytics, research, and technology.\n\nMy key areas of expertise:\n📊 Data analysis and visualization\n📈 Predictive modeling and machine learning\n📚 Research in decision-making processes\nI use this platform to share my work, case studies, and insights on how data shapes our world.\nFor professional inquiries, feel free to connect! 🚀\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "My Blog",
+    "section": "",
+    "text": "This page is under construction.\n\n\n\n Back to top"
+  }
+]
