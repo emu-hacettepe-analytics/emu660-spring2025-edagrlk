@@ -36,7 +36,64 @@ library(knitr)
 kable(t(result), caption = "mtcars Data Set Summary")
 ```
 
+## (c) 
 
+#Handling Missing Values in `na_example` Dataset
+
+
+```{r}
+
+library(dslabs)  
+data(na_example)  
+
+summary(na_example)  
+
+sum(is.na(na_example))  
+which(is.na(na_example))  
+
+median_value <- median(na_example, na.rm = TRUE)
+na_median_filled <- ifelse(is.na(na_example), median_value, na_example)
+
+summary(na_median_filled)
+
+na_random_filled <- na_example
+na_random_filled[is.na(na_random_filled)] <- sample(na_example[!is.na(na_example)], 
+                                                     sum(is.na(na_random_filled)), 
+                                                     replace = TRUE)
+
+summary(na_random_filled)
+
+library(knitr)
+
+comparison <- data.frame(
+  Method = c("Original Dataset", "Median Imputation", "Random Imputation"),
+  Mean = c(mean(na_example, na.rm = TRUE), mean(na_median_filled, na.rm = TRUE), mean(na_random_filled, na.rm = TRUE)),
+  Median = c(median(na_example, na.rm = TRUE), median(na_median_filled, na.rm = TRUE), median(na_random_filled, na.rm = TRUE)),
+  Max = c(max(na_example, na.rm = TRUE), max(na_median_filled, na.rm = TRUE), max(na_random_filled, na.rm = TRUE))
+)
+kable(comparison, caption = "Comparison of Missing Data Handling Methods")
+
+## **Conclusion**
+In this analysis, we explored two different methods for handling missing values in the `na_example` dataset:  
+- **Median Imputation:** Replacing missing values with the median of the dataset.  
+- **Random Imputation:** Filling missing values with randomly selected non-missing values from the dataset.  
+
+The table below summarizes the impact of these two methods on the dataset:
+
+| Method                | Mean  | Median | Max  |
+|-----------------------|-------|--------|------|
+| **Original Dataset**  | 2.302 | 2      | 7    |
+| **Median Imputation** | 2.258 | 2      | 7    |
+| **Random Imputation** | 2.290 | 2      | 7    |
+
+### **Key Insights**
+- **Median imputation** is a consistent approach that ensures stability in the dataset. However, it reduces variability because all missing values are replaced with the same number.  
+- **Random imputation** preserves the natural distribution of the dataset by introducing variation, but it also adds randomness, which may not always be desirable.  
+- **Choosing the best method depends on the context.** If maintaining consistency is more important, median imputation is a better choice. If preserving the original distribution is a priority, random imputation is preferable.  
+
+Ultimately, the selection of an appropriate method should be based on the dataset's characteristics and the goals of the analysis.
+
+```
 
 
 
