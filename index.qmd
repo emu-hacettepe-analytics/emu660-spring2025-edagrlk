@@ -2,7 +2,7 @@
 title: "Welcome to My Analytics Lab!"
 ---
 
-![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDlra3puc2EzdWNicDZ4eGhkNTF3MWZuanZ3bDBycZjem4xZHdibCZlcD12MV9pbnRlcm5hbF9naWZyYWNmYQ)
+![](assets/images/data.gif){fig-align="center"}
 
 Hello, I’m **Eda Hilal Akbulut**, and this website showcases my work in **data analytics, research, and technology.**  
 
