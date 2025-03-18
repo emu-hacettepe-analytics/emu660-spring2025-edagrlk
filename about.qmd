@@ -3,7 +3,7 @@ title: "About Me"
 sidebar: false 
 ---
 
-![](assets/images/eda.jpeg){fig-align="center"}
+![](assets/images/eda.jpeg){fig-align="center" width="80%"}
 
 # Education
 
