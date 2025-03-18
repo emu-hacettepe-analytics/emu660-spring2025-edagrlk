@@ -35,3 +35,5 @@ R, Quarto, Git, Python
 # Hobbies
 
 Passionate about discovering new cultures through travel, enjoying various music genres, and continuously learning through books and documentaries. Interested in photography and culinary experiences.
+
+[CV](assets/cv.pdf)
