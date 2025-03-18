@@ -38,18 +38,21 @@ kable(t(result), caption = "mtcars Data Set Summary")
 
 ## (c) 
 
-#Handling Missing Values in `na_example` Dataset
+# Handling Missing Values in `na_example` Dataset
 
 
 ```{r}
 
 library(dslabs)  
-data(na_example)  
+library(knitr)
 
-summary(na_example)  
+data(na_example)
 
-sum(is.na(na_example))  
-which(is.na(na_example))  
+summary(na_example)
+
+missing_count <- sum(is.na(na_example))  
+
+missing_indices <- which(is.na(na_example))  
 
 median_value <- median(na_example, na.rm = TRUE)
 na_median_filled <- ifelse(is.na(na_example), median_value, na_example)
@@ -63,15 +66,16 @@ na_random_filled[is.na(na_random_filled)] <- sample(na_example[!is.na(na_example
 
 summary(na_random_filled)
 
-library(knitr)
-
 comparison <- data.frame(
   Method = c("Original Dataset", "Median Imputation", "Random Imputation"),
   Mean = c(mean(na_example, na.rm = TRUE), mean(na_median_filled, na.rm = TRUE), mean(na_random_filled, na.rm = TRUE)),
   Median = c(median(na_example, na.rm = TRUE), median(na_median_filled, na.rm = TRUE), median(na_random_filled, na.rm = TRUE)),
   Max = c(max(na_example, na.rm = TRUE), max(na_median_filled, na.rm = TRUE), max(na_random_filled, na.rm = TRUE))
 )
+
 kable(comparison, caption = "Comparison of Missing Data Handling Methods")
+
+```
 
 ## Conclusion
 In this analysis, we explored two different methods for handling missing values in the `na_example` dataset:  
@@ -93,7 +97,7 @@ The table below summarizes the impact of these two methods on the dataset:
 
 Ultimately, the selection of an appropriate method should be based on the dataset's characteristics and the goals of the analysis.
 
-```
+
 
 
 
