@@ -8,7 +8,6 @@ Here, you’ll find updates and insights from our ongoing exploration of earthqu
 
 # 1. Project Overview and Scope
 
-
 Earthquakes remain one of the most pressing natural threats facing Turkey, a country intersected by several active fault lines—most notably the North Anatolian Fault Zone. Understanding the spatio-temporal characteristics of seismic activity is crucial for disaster preparedness, urban planning, and seismic risk mitigation strategies.
 
 This project focuses on analyzing the **temporal trends** and **regional distribution** of earthquakes that occurred in Turkey between **1995 and 2023**, using an openly accessible dataset published by the United States Geological Survey (USGS). The dataset includes thousands of seismic events, each detailed with attributes such as time, location, magnitude, and depth, all confined within Turkey’s geographic boundaries (26°–45° E and 36°–42° N).
@@ -35,7 +34,6 @@ Understanding the nature of seismic activity in Turkey requires a data-driven ap
 
 The dataset used in this project was obtained from the [USGS Earthquake Catalog](https://earthquake.usgs.gov/earthquakes/search/), a widely used open-access platform that provides detailed global seismic activity records. 
 For this project, we filtered the data to include only earthquakes that occurred within the borders of Turkey — specifically between 26°–45° Eastern longitudes and 36°–42° Northern latitudes — between the years 1995 and 2023. Additionally, only events with a magnitude of 2.0 or greater were included to focus on perceptible and potentially damaging seismic activity.
-
 
 The dataset was downloaded in `.csv` format and contains information such as:
 
