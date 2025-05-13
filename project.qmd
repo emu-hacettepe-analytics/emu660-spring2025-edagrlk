@@ -91,7 +91,7 @@ xxxxxx
 
 ## 3.1 Exploratory Data Analysis
 
-xxxxxx
+In this section, we will conduct an exploratory analysis of the earthquake data to understand its basic structure and identify potential patterns or issues.
 
 ## 3.2 Trend Analysis
 
