@@ -83,7 +83,12 @@ After importing the CSV file into R, several preprocessing steps were performed 
 The cleaned dataset was saved in `.RData` format for reproducibility and faster processing in future sessions.
 
 ```{r}
-save(eq_data, file = "data/earthquake_cleaned.RData")
+eq_data <- read.csv("turkey_earthquake_data.csv")
+eq_data$DateTime <- as.POSIXct(eq_data$time, format="%Y-%m-%dT%H:%M:%OSZ", tz="UTC")
+eq_data <- subset(eq_data, mag >= 3.0)
+eq_data$year <- format(eq_data$DateTime, "%Y")
+save(eq_data, file="eq_data.RData")
+```
 
 # 3. Analysis
 
