@@ -16,6 +16,8 @@ The primary research question driving this project is:
 
 > **"How have earthquake frequency and magnitude changed in Turkey over time, and which regions show consistently higher seismic activity based on historical data?"**
 
+![](assets/images/deprem.jpg){fig-align="center" width="40%"}
+
 To answer this question, the project sets the following objectives:
 
 - **Temporal Analysis**: Track annual or seasonal shifts in earthquake frequency and intensity.
