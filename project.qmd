@@ -247,7 +247,7 @@ Regarding human and economic impacts, the following major earthquakes have been 
 |-------|-------------------------|---------------------|---------------------------|-------------------------------------------------|
 | 1991  | Erzincan Earthquake      | ~750                | Severe                    | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/usp0004xzn)  |
 | 1993  | Erzincan Earthquake      | ~1500               | Severe                    | [EM-DAT](https://www.emdat.be)                   |
-| 1994  | Northridge-type Event    | Not in Turkey       | —                         | —                                               |
+| 1994  | Marmara (Ladik) Earthquake    | Minimal       | —                         | —                                               |
 | 1995  | Dinar Earthquake         | ~90                 | Significant               | [Kandilli Observatory](http://www.koeri.boun.edu.tr) |
 | 1999  | İzmit Earthquake         | ~17,000             | Estimated billions        | [AFAD](https://www.afad.gov.tr), [USGS](https://earthquake.usgs.gov) |
 | 2004  | Bolu-Gerede Earthquake   | ~150                | Considerable              | [EM-DAT](https://www.emdat.be)                   |
@@ -257,6 +257,8 @@ Regarding human and economic impacts, the following major earthquakes have been 
 | 2023  | Kahramanmaraş Earthquake | >50,000             | Massive                   | [ReliefWeb](https://reliefweb.int), [AFAD](https://www.afad.gov.tr) |
 
 Note: The death tolls and damage estimates vary between sources but consistently highlight the catastrophic nature of these events.
+Note: In 1994, an earthquake occurred in the Marmara region of Turkey. Although it was a noticeable seismic event, it did not result in significant destruction or a high number of casualties compared to other major earthquakes in the country. Therefore, its impact is considered minor relative to catastrophic events such as those in 1999 and 2023.
+
 
 By cross-referencing our earthquake data with these well-documented events, we validate that the dataset effectively reflects the timing and intensity of Turkey’s major seismic disasters. This allows us to confidently use it as a basis for spatial and temporal analyses as well as for informing risk mitigation strategies.
 
