@@ -1,5 +1,11 @@
 ---
-title: "Temporal and Regional Analysis of Earthquake Activity in Turkey (1995–2023)"
+title:  <span style="color:brown;">Temporal and Regional Analysis of Earthquake Activity in Turkey (1995–2023)</span> 
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+    code-copy: true
+    embed-resources: true
 ---
 
 Welcome to our project page.
