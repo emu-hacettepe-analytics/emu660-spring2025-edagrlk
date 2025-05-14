@@ -22,7 +22,7 @@ The primary research question driving this project is:
 
 > **"How have earthquake frequency and magnitude changed in Turkey over time, and which regions show consistently higher seismic activity based on historical data?"**
 
-![](assets/images/deprem.jpg){fig-align="center" width="40%"}
+![](assets/images/deprem.jpg){fig-align="center"}
 
 To answer this question, the project sets the following objectives:
 
@@ -93,8 +93,23 @@ eq_data <- read.csv("turkey_earthquake_data.csv")
 eq_data$DateTime <- as.POSIXct(eq_data$time, format="%Y-%m-%dT%H:%M:%OSZ", tz="UTC")
 eq_data <- subset(eq_data, mag >= 3.0)
 eq_data$year <- format(eq_data$DateTime, "%Y")
+eq_data <- eq_data[ , !(names(eq_data) %in% c("magType", "nst", "gap", "dmin", "rms", 
+                                              "net", "id", "updated", "type", 
+                                              "horizontalError", "depthError", 
+                                              "magError", "magNst", "status"))]
 save(eq_data, file="eq_data.RData")
 ```
+
+---
+
+
+```{r}
+library(knitr)
+
+# İlk 10 satırı daha düzgün biçimli tablo olarak göster
+kable(head(eq_data, 10), caption = "Table 1: Sample of Pre-processed Earthquake Data")
+```
+
 
 # 3. Analysis
 
