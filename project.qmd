@@ -101,7 +101,7 @@ In this section, we will conduct an exploratory analysis of the earthquake data 
 deneme
 deneme 
 deneme
-deneme
+denemexxx
 
 ## 3.2 Trend Analysis
 
