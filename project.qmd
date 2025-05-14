@@ -1,5 +1,5 @@
 ---
-title:  <span style="color:brown;">Temporal and Regional Analysis of Earthquake Activity in Turkey (1995–2023)</span> 
+title:  <span style="color:brown;">Temporal and Regional Analysis of Earthquake Activity in Turkey (1975–2023)</span> 
 format:
   html:
     code-fold: true
@@ -16,7 +16,7 @@ Here, you’ll find updates and insights from our ongoing exploration of earthqu
 
 Earthquakes remain one of the most pressing natural threats facing Turkey, a country intersected by several active fault lines—most notably the North Anatolian Fault Zone. Understanding the spatio-temporal characteristics of seismic activity is crucial for disaster preparedness, urban planning, and seismic risk mitigation strategies.
 
-This project focuses on analyzing the **temporal trends** and **regional distribution** of earthquakes that occurred in Turkey between **1995 and 2023**, using an openly accessible dataset published by the United States Geological Survey (USGS). The dataset includes thousands of seismic events, each detailed with attributes such as time, location, magnitude, and depth, all confined within Turkey’s geographic boundaries (26°–45° E and 36°–42° N).
+This project focuses on analyzing the **temporal trends** and **regional distribution** of earthquakes that occurred in Turkey between **1975 and 2023**, using an openly accessible dataset published by the United States Geological Survey (USGS). The dataset includes thousands of seismic events, each detailed with attributes such as time, location, magnitude, and depth, all confined within Turkey’s geographic boundaries (26°–45° E and 36°–42° N).
 
 The primary research question driving this project is:
 
@@ -41,7 +41,7 @@ Understanding the nature of seismic activity in Turkey requires a data-driven ap
 ## 2.1 Data Source
 
 The dataset used in this project was obtained from the [USGS Earthquake Catalog](https://earthquake.usgs.gov/earthquakes/search/), a widely used open-access platform that provides detailed global seismic activity records. 
-For this project, we filtered the data to include only earthquakes that occurred within the borders of Turkey — specifically between 26°–45° Eastern longitudes and 36°–42° Northern latitudes — between the years 1995 and 2023. Additionally, only events with a magnitude of 2.0 or greater were included to focus on perceptible and potentially damaging seismic activity.
+For this project, we filtered the data to include only earthquakes that occurred within the borders of Turkey — specifically between 26°–45° Eastern longitudes and 36°–42° Northern latitudes — between the years 1975 and 2023. Additionally, only events with a magnitude of 2.0 or greater were included to focus on perceptible and potentially damaging seismic activity.
 
 The dataset was downloaded in `.csv` format and contains information such as:
 
@@ -73,7 +73,7 @@ Overall, The structure of the dataset is tidy and consistent, which makes it eas
 There are several reasons why we chose this specific dataset:
 
 - First and foremost, earthquakes have always been a critical topic in Turkey, especially following the devastating seismic events in 1999 and more recently in 2023. Understanding patterns in historical data can offer valuable insights into risk mitigation.
-- Second, the dataset is both **rich** and **clean**, and doesn't require extensive preprocessing to begin analysis. It offers a long temporal range (1995–2023), which makes it ideal for trend detection.
+- Second, the dataset is both **rich** and **clean**, and doesn't require extensive preprocessing to begin analysis. It offers a long temporal range (1975–2023), which makes it ideal for trend detection.
 - Lastly, We wanted a dataset that is directly relevant to public safety and urban planning in Turkey. The output of this study could contribute to further academic or policy-oriented discussions about seismic preparedness.
 
 ## 2.4 Preprocessing
@@ -102,7 +102,7 @@ save(eq_data, file="eq_data.RData")
 
 ### Sample of the Cleaned Dataset
 
-The table below presents the first few rows of the cleaned earthquake dataset used in this study. After filtering out earthquakes below magnitude 3.0 and removing irrelevant columns, the dataset now includes key attributes such as date, location, magnitude, and depth. This refined structure allows for a more focused analysis of significant seismic activity in Turkey from 1995 to 2023.
+The table below presents the first few rows of the cleaned earthquake dataset used in this study. After filtering out earthquakes below magnitude 3.0 and removing irrelevant columns, the dataset now includes key attributes such as date, location, magnitude, and depth. This refined structure allows for a more focused analysis of significant seismic activity in Turkey from 1975 to 2023.
 
 ```{r}
 library(knitr)
@@ -122,7 +122,7 @@ In this section, we will conduct an exploratory analysis of the earthquake data 
 
 ### 3.1.1 Overview of the Dataset
 
-The dataset includes information on earthquakes that occurred in Turkey from 1995 to 2023, filtered to include only events with a magnitude of 3.0 or higher. After preprocessing, the dataset consists of the following key columns:
+The dataset includes information on earthquakes that occurred in Turkey from 1975 to 2023, filtered to include only events with a magnitude of 3.0 or higher. After preprocessing, the dataset consists of the following key columns:
 
 - **DateTime**: The exact date and time of each earthquake (in UTC).
 - **latitude**: The north–south coordinate of the event.
@@ -265,12 +265,38 @@ By cross-referencing our earthquake data with these well-documented events, we v
 
 ## 3.3 Model Fitting
 
-xxxxxx
+```{r}
+eq_major <- subset(eq_data, mag >= 6.0)
 
-## 3.4 Results
+library(ggplot2)
+library(sf)
 
-xxxxxx
+turkey_shapefile <- st_read("/Users/akbulut/Documents/GitHub/emu660-spring2025-edagrlk/turkey.shp")
+
+eq_major <- subset(eq_data, mag >= 6.0)
+
+ggplot() +
+  geom_sf(data = turkey_shapefile, fill = "white", color = "black") +
+  geom_point(data = eq_major,
+             aes(x = longitude, y = latitude, color = mag, size = mag),
+             alpha = 0.7) +
+  scale_color_viridis_c(option = "inferno", direction = -1) +
+  scale_size_continuous(range = c(3, 7)) +  # Noktaların büyüklük aralığı
+  coord_sf(xlim = c(26, 45), ylim = c(36, 42), expand = FALSE) +
+  labs(title = "Spatial Distribution of Earthquakes with Magnitude ≥ 6.0 in Turkey",
+       x = "Longitude", y = "Latitude", color = "Magnitude", size = "Magnitude") +
+  theme_minimal()
+```
 
 # 4. Results and Key Takeaways
 
-xxxxxx
+When we looked at earthquakes in Turkey between 1975 and 2023, we wanted to understand not just how often they happened but also where they were most intense. By combining the time and place of these events, we uncovered patterns that show which years were particularly active and which regions faced the most powerful shakes. These findings help us get a clearer picture of earthquake risks in Turkey and can guide efforts to better prepare and protect communities. Here are the main takeaways from our work:
+	•	This study takes a close look at the timing and locations of earthquakes in Turkey over nearly three decades, using detailed data from the USGS earthquake catalog.
+	•	We found that certain years stood out with more earthquake activity, and we mapped these events to highlight hotspots with frequent and strong quakes.
+	•	The dataset reflects real-life major earthquakes, like the devastating ones in 1999 and 2023, making our analysis grounded in actual seismic history.
+	•	By spotting clusters of big earthquakes, we identified areas that might need extra attention when it comes to risk planning and disaster readiness.
+	•	Overall, this work shows how looking at both when and where earthquakes happen can give a much better understanding of the risks, helping us take smarter steps to reduce them.
+	
+	
+	
+	*ChatGPT was utilized in this project.
