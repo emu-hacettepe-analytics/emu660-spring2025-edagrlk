@@ -138,7 +138,7 @@ The dataset is structured in a tidy format with no missing values in the key ana
 sum(is.na(eq_data))
 ```
 
-### 3.1.2 Variable Distributions
+## 3.2 Visualization and Analysis
 
 Understanding the distributions of key variables gives insight into the data’s characteristics and helps identify any anomalies or patterns.
 
@@ -185,7 +185,8 @@ ggplot(data.frame(year = names(earthquakes_per_year), count = as.numeric(earthqu
 
 Mapping earthquake epicenters provides spatial insights and helps identify regions of concentrated seismic activity.
 
-```{r, message=FALSE, warning=FALSE}
+
+```{r, fig.width=7, fig.height=5}
 library(ggplot2)
 library(sf)
 
@@ -198,8 +199,38 @@ ggplot() +
   coord_sf(xlim = c(26, 45), ylim = c(36, 42), expand = FALSE) +
   labs(title = "Spatial Distribution of Earthquakes in Turkey",
        x = "Longitude", y = "Latitude", color = "Magnitude") +
-  theme_minimal()
-```       
+  theme_minimal()      
+```
+```{r}
+library(ggplot2)
+library(sf)
+
+turkey_shapefile <- st_read("/Users/akbulut/Documents/GitHub/emu660-spring2025-edagrlk/turkey.shp")
+
+top10_years <- names(sort(table(eq_data$year), decreasing = TRUE))[1:10]
+
+for (yr in top10_years) {
+  eq_year <- subset(eq_data, year == yr)
+  
+  cat("\n\n### Earthquake Distribution for Year:", yr, "\n\n")
+  
+  print(
+    ggplot() +
+      geom_sf(data = turkey_shapefile, fill = "white", color = "black") +
+      geom_point(data = eq_year,
+                 aes(x = longitude, y = latitude, color = mag),
+                 alpha = 0.6,
+                 size = ifelse(eq_year$mag > 5, 5, 2)) +  # 5'ten büyükse 5, değilse 2
+      scale_color_viridis_c(option = "inferno", direction = -1) +
+      coord_sf(xlim = c(26, 45), ylim = c(36, 42), expand = FALSE) +
+      labs(title = paste("Spatial Distribution of Earthquakes in Turkey - Year:", yr),
+           x = "Longitude", y = "Latitude", color = "Magnitude") +
+      theme_minimal()
+  )
+}
+```
+
+
 
 ## 3.3 Model Fitting
 
