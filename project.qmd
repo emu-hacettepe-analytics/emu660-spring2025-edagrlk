@@ -138,7 +138,7 @@ The dataset is structured in a tidy format with no missing values in the key ana
 sum(is.na(eq_data))
 ```
 
-#### 3.1.2 Variable Distributions
+### 3.1.2 Variable Distributions
 
 Understanding the distributions of key variables gives insight into the data’s characteristics and helps identify any anomalies or patterns.
 
