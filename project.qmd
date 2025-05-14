@@ -114,7 +114,7 @@ kable(head(eq_data, 10), caption = "Table 1: Sample of Pre-processed Earthquake 
 
 # 3. Analysis
 
-xxxxxx
+In this part of the project, we carefully examined the earthquake data to identify patterns and trends related to seismic activity in Turkey. We began by exploring the dataset to understand its overall quality and key characteristics, analyzing the distribution of earthquake magnitudes and depths, checking for any missing or unusual data, and preparing the data for further analysis. Next, we investigated how earthquake occurrences have evolved over time by grouping events by year to observe changes in frequency and strength over the 28-year period. Simultaneously, we mapped the spatial distribution of earthquakes across Turkey, which allowed us to pinpoint regions with higher seismic activity and identify clusters of frequent events. We also examined potential relationships between variables, such as the correlation between earthquake depth and magnitude. Finally, we applied clustering techniques and created heatmaps to highlight areas with intensified seismic activity. These visualizations helped us identify zones that might require closer monitoring or risk mitigation. Throughout the analysis, we utilized the R programming language and specialized packages for geospatial data handling and visualization. Our findings lay a foundation for more advanced seismic risk modeling and provide valuable insights for researchers and policymakers interested in Turkey’s earthquake patterns.
 
 ## 3.1 Exploratory Data Analysis
 
@@ -185,10 +185,17 @@ ggplot(data.frame(year = names(earthquakes_per_year), count = as.numeric(earthqu
 
 Mapping earthquake epicenters provides spatial insights and helps identify regions of concentrated seismic activity.
 
-```{r}
-ggplot(eq_data, aes(x = longitude, y = latitude, color = mag)) +
-  geom_point(alpha = 0.5) +
-  scale_color_viridis_c(option = "inferno") +
+```{r, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(sf)
+
+turkey_shapefile <- st_read("/Users/akbulut/Documents/GitHub/emu660-spring2025-edagrlk/turkey.shp")
+
+ggplot() +
+  geom_sf(data = turkey_shapefile, fill = "white", color = "black") +
+  geom_point(data = eq_data, aes(x = longitude, y = latitude, color = mag), alpha = 0.5) +
+  scale_color_viridis_c(option = "inferno", direction = -1) +
+  coord_sf(xlim = c(26, 45), ylim = c(36, 42), expand = FALSE) +
   labs(title = "Spatial Distribution of Earthquakes in Turkey",
        x = "Longitude", y = "Latitude", color = "Magnitude") +
   theme_minimal()
