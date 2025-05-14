@@ -98,16 +98,7 @@ eq_data <- eq_data[ , !(names(eq_data) %in% c("magType", "nst", "gap", "dmin", "
                                               "horizontalError", "depthError", 
                                               "magError", "magNst", "status"))]
 save(eq_data, file="eq_data.RData")
-```
-
----
-
-
-```{r}
-library(knitr)
-
-# İlk 10 satırı daha düzgün biçimli tablo olarak göster
-kable(head(eq_data, 10), caption = "Table 1: Sample of Pre-processed Earthquake Data")
+head(eq_data, 10)
 ```
 
 
