@@ -4818,7 +4818,10 @@ vertical-align: -.125em;
   <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source">2.1 Data Source</a></li>
   <li><a href="#general-information-about-data" id="toc-general-information-about-data" class="nav-link" data-scroll-target="#general-information-about-data">2.2 General Information About Data</a></li>
   <li><a href="#reason-of-choice" id="toc-reason-of-choice" class="nav-link" data-scroll-target="#reason-of-choice">2.3 Reason of Choice</a></li>
-  <li><a href="#preprocessing" id="toc-preprocessing" class="nav-link" data-scroll-target="#preprocessing">2.4 Preprocessing</a></li>
+  <li><a href="#preprocessing" id="toc-preprocessing" class="nav-link" data-scroll-target="#preprocessing">2.4 Preprocessing</a>
+  <ul class="collapse">
+  <li><a href="#sample-of-the-cleaned-dataset" id="toc-sample-of-the-cleaned-dataset" class="nav-link" data-scroll-target="#sample-of-the-cleaned-dataset">Sample of the Cleaned Dataset</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">3. Analysis</a>
   <ul class="collapse">
@@ -4950,45 +4953,175 @@ vertical-align: -.125em;
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">&quot;net&quot;</span>, <span class="st">&quot;id&quot;</span>, <span class="st">&quot;updated&quot;</span>, <span class="st">&quot;type&quot;</span>, </span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">&quot;horizontalError&quot;</span>, <span class="st">&quot;depthError&quot;</span>, </span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">&quot;magError&quot;</span>, <span class="st">&quot;magNst&quot;</span>, <span class="st">&quot;status&quot;</span>))]</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(eq_data, <span class="at">file=</span><span class="st">&quot;eq_data.RData&quot;</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(eq_data, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(eq_data, <span class="at">file=</span><span class="st">&quot;eq_data.RData&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>                       time latitude longitude depth mag
-1  1975-04-23T01:08:08.500Z   40.450    26.076    20 4.3
-2  1975-04-30T04:28:56.900Z   36.184    30.772    56 5.6
-3  1975-05-02T05:03:19.300Z   36.221    30.612    43 3.9
-4  1975-05-07T17:59:15.800Z   40.370    26.092    33 3.9
-5  1975-05-30T05:13:45.100Z   39.118    27.747    10 3.9
-6  1975-05-30T14:22:40.800Z   38.732    27.620     9 4.2
-7  1975-05-31T05:36:52.900Z   36.162    29.015    42 4.0
-8  1975-05-31T12:41:23.900Z   36.642    28.131    19 4.0
-9  1975-06-02T03:19:07.200Z   36.652    26.590    25 4.5
-10 1975-06-04T02:55:37.000Z   40.857    31.513    68 3.8
-                             place locationSource magSource            DateTime
-1          30 km S of Enez, Turkey             us        us 1975-04-23 01:08:08
-2    41 km SSE of Tekirova, Turkey             us        us 1975-04-30 04:28:56
-3    30 km ESE of Beykonak, Turkey             us        us 1975-05-02 05:03:19
-4     24 km NE of Gökçeada, Turkey             us       ath 1975-05-07 17:59:15
-5       6 km E of K?rka?aç, Turkey             us        us 1975-05-30 05:13:45
-6      4 km E of Saruhanl?, Turkey             us       ath 1975-05-30 14:22:40
-7      37 km WSW of Kalkan, Turkey             us        us 1975-05-31 05:36:52
-8     19 km SSW of ?çmeler, Turkey             us        us 1975-05-31 12:41:23
-9  24 km ENE of Astypálaia, Greece             us        us 1975-06-02 03:19:07
-10       15 km NNW of Bolu, Turkey             us        us 1975-06-04 02:55:37
-   year
-1  1975
-2  1975
-3  1975
-4  1975
-5  1975
-6  1975
-7  1975
-8  1975
-9  1975
-10 1975</code></pre>
+</div>
+<section id="sample-of-the-cleaned-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="sample-of-the-cleaned-dataset">Sample of the Cleaned Dataset</h3>
+<p>The table below presents the first few rows of the cleaned earthquake dataset used in this study. After filtering out earthquakes below magnitude 3.0 and removing irrelevant columns, the dataset now includes key attributes such as date, location, magnitude, and depth. This refined structure allows for a more focused analysis of significant seismic activity in Turkey from 1995 to 2023.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># İlk 10 satırı daha düzgün biçimli tablo olarak göster</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(eq_data, <span class="dv">10</span>), <span class="at">caption =</span> <span class="st">&quot;Table 1: Sample of Pre-processed Earthquake Data&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Table 1: Sample of Pre-processed Earthquake Data</caption>
+<colgroup>
+<col style="width: 18%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 23%">
+<col style="width: 11%">
+<col style="width: 7%">
+<col style="width: 14%">
+<col style="width: 3%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">time</th>
+<th style="text-align: right;">latitude</th>
+<th style="text-align: right;">longitude</th>
+<th style="text-align: right;">depth</th>
+<th style="text-align: right;">mag</th>
+<th style="text-align: left;">place</th>
+<th style="text-align: left;">locationSource</th>
+<th style="text-align: left;">magSource</th>
+<th style="text-align: left;">DateTime</th>
+<th style="text-align: left;">year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1975-04-23T01:08:08.500Z</td>
+<td style="text-align: right;">40.450</td>
+<td style="text-align: right;">26.076</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: left;">30 km S of Enez, Turkey</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">1975-04-23 01:08:08</td>
+<td style="text-align: left;">1975</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1975-04-30T04:28:56.900Z</td>
+<td style="text-align: right;">36.184</td>
+<td style="text-align: right;">30.772</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">5.6</td>
+<td style="text-align: left;">41 km SSE of Tekirova, Turkey</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">1975-04-30 04:28:56</td>
+<td style="text-align: left;">1975</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1975-05-02T05:03:19.300Z</td>
+<td style="text-align: right;">36.221</td>
+<td style="text-align: right;">30.612</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: left;">30 km ESE of Beykonak, Turkey</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">1975-05-02 05:03:19</td>
+<td style="text-align: left;">1975</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1975-05-07T17:59:15.800Z</td>
+<td style="text-align: right;">40.370</td>
+<td style="text-align: right;">26.092</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: left;">24 km NE of Gökçeada, Turkey</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">ath</td>
+<td style="text-align: left;">1975-05-07 17:59:15</td>
+<td style="text-align: left;">1975</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1975-05-30T05:13:45.100Z</td>
+<td style="text-align: right;">39.118</td>
+<td style="text-align: right;">27.747</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: left;">6 km E of K?rka?aç, Turkey</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">1975-05-30 05:13:45</td>
+<td style="text-align: left;">1975</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1975-05-30T14:22:40.800Z</td>
+<td style="text-align: right;">38.732</td>
+<td style="text-align: right;">27.620</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">4.2</td>
+<td style="text-align: left;">4 km E of Saruhanl?, Turkey</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">ath</td>
+<td style="text-align: left;">1975-05-30 14:22:40</td>
+<td style="text-align: left;">1975</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1975-05-31T05:36:52.900Z</td>
+<td style="text-align: right;">36.162</td>
+<td style="text-align: right;">29.015</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: left;">37 km WSW of Kalkan, Turkey</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">1975-05-31 05:36:52</td>
+<td style="text-align: left;">1975</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1975-05-31T12:41:23.900Z</td>
+<td style="text-align: right;">36.642</td>
+<td style="text-align: right;">28.131</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: left;">19 km SSW of ?çmeler, Turkey</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">1975-05-31 12:41:23</td>
+<td style="text-align: left;">1975</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1975-06-02T03:19:07.200Z</td>
+<td style="text-align: right;">36.652</td>
+<td style="text-align: right;">26.590</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">4.5</td>
+<td style="text-align: left;">24 km ENE of Astypálaia, Greece</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">1975-06-02 03:19:07</td>
+<td style="text-align: left;">1975</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1975-06-04T02:55:37.000Z</td>
+<td style="text-align: right;">40.857</td>
+<td style="text-align: right;">31.513</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: left;">15 km NNW of Bolu, Turkey</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">us</td>
+<td style="text-align: left;">1975-06-04 02:55:37</td>
+<td style="text-align: left;">1975</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="analysis" class="level1">

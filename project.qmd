@@ -98,7 +98,17 @@ eq_data <- eq_data[ , !(names(eq_data) %in% c("magType", "nst", "gap", "dmin", "
                                               "horizontalError", "depthError", 
                                               "magError", "magNst", "status"))]
 save(eq_data, file="eq_data.RData")
-head(eq_data, 10)
+```
+
+### Sample of the Cleaned Dataset
+
+The table below presents the first few rows of the cleaned earthquake dataset used in this study. After filtering out earthquakes below magnitude 3.0 and removing irrelevant columns, the dataset now includes key attributes such as date, location, magnitude, and depth. This refined structure allows for a more focused analysis of significant seismic activity in Turkey from 1995 to 2023.
+
+```{r}
+library(knitr)
+
+# İlk 10 satırı daha düzgün biçimli tablo olarak göster
+kable(head(eq_data, 10), caption = "Table 1: Sample of Pre-processed Earthquake Data")
 ```
 
 
