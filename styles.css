@@ -1,1 +1,57 @@
-/* css styles */
+/* Genel gövde arka planı ve metin rengi */
+body {
+  background-color: #fdf6e3;   /* krem rengi */
+  color: #333333;              /* koyu gri metin */
+  font-family: 'Helvetica Neue', sans-serif;
+  padding: 2em;
+}
+
+/* Başlık stilleri */
+h1, h2, h3, h4, h5, h6 {
+  color: #2c3e50; /* başlıklar için mavi-gri ton */
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+/* Kod bloklarının arka planı */
+pre, code {
+  background-color: #f5f2e7; /* açık krem kod kutusu */
+  color: #2d2d2d;
+  padding: 0.3em 0.5em;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+/* Navigation ve başlık banner arka plan uyumu */
+.navbar, .quarto-sidebar, .quarto-title-banner {
+  background-color: #fdf6e3 !important;
+}
+
+/* Tablo stilleri */
+table {
+  background-color: #fffefb;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  color: #333;
+}
+
+/* Link rengi */
+a {
+  color: #336699;
+}
+
+a:hover {
+  color: #224466;
+}
+
+/* Genişlik ve kenar boşlukları */
+.main {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+  padding: 1em;
+}

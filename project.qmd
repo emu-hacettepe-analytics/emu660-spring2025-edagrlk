@@ -6,6 +6,7 @@ format:
     code-summary: "Show the code"
     code-copy: true
     embed-resources: true
+    css: styles.css
   pdf:
     colorlinks: true
     papersize: a4
@@ -25,15 +26,13 @@ Here, you’ll find updates and insights from our ongoing exploration of earthqu
 
 # 1. Project Overview and Scope
 
-Earthquakes remain one of the most pressing natural threats facing Turkey, a country intersected by several active fault lines—most notably the North Anatolian Fault Zone.
-Understanding the spatio-temporal characteristics of seismic activity is crucial for disaster preparedness, urban planning, and seismic risk mitigation strategies.
+Earthquakes are one of the most important natural hazards in Turkey, a country that located on several active fault lines — especially the North Anatolian Fault Zone. Understanding when and where earthquakes happen is essential for planning, risk reduction, and disaster preparation.
 
-This project focuses on analyzing the **temporal trends** and **regional distribution** of earthquakes that occurred in Turkey between **1975 and 2023**, using an openly accessible dataset published by the United States Geological Survey (USGS).
-The dataset includes thousands of seismic events, each detailed with attributes such as time, location, magnitude, and depth, all confined within Turkey’s geographic boundaries (26°–45° E and 36°–42° N).
+This project analyzes seismic activity in Turkey from 1975 to 2023, using a dataset published by the United States Geological Survey (USGS). The dataset includes thousands of events with details such as time, location, magnitude, and depth, all limited to Turkey’s geographical borders.
 
-The primary research question driving this project is:
+The main question of this research is:
 
-> **"How have earthquake frequency and magnitude changed in Turkey over time, and which regions show consistently higher seismic activity based on historical data?"**
+>**“How did earthquake frequency and magnitude change in Turkey over time, and which regions show the most consistent seismic activity?”**
 
 ![](assets/images/deprem.jpg){fig-align="center"}
 
@@ -72,7 +71,7 @@ After downloading, the data was imported into R for further exploration and prep
 
 ## 2.2 General Information About Data
 
-The dataset consists of approximately **30,000 earthquake events** recorded in Turkey over a **28-year period**.
+The dataset consists of approximately **30,000 earthquake events** recorded in Turkey over a **48-year period**.
 Each row in the dataset corresponds to a unique seismic event, with detailed information such as the time it occurred, its geographical coordinates, how deep it originated, and how strong it was.
 Most earthquakes are naturally concentrated around Turkey’s well-known fault zones, such as the North Anatolian Fault in the north and the East Anatolian Fault in the southeast.
 This spatial clustering is something we aim to explore visually in the later sections of the project.
@@ -100,11 +99,11 @@ There are several reasons why we chose this specific dataset:
 
 After importing the CSV file into R, several preprocessing steps were performed to prepare the dataset for analysis:
 
--   **Datetime Conversion**: The `time` column was converted into proper POSIXct format to enable time-based analysis.
--   **Filtering**: Earthquakes below magnitude 2.0 were excluded, since they are too weak to be of concern in a risk-focused study.
--   **Region Extraction**: The `place` column was parsed to extract province-level identifiers where possible.
+-   **Datetime Conversion**: The `time` column was converted to proper date-time format to make time-based analysis possible.
+-   **Filtering**: Earthquakes smaller than magnitude 2.0 were left out, as they’re too weak to be relevant for a risk-focused study.
+-   **Region Extraction**: The `place` was used to pull out province-level location info when available.
 -   **Derived Variables**: A `year` column was created from the datetime to allow annual comparisons.
--   **Missing Values**: The dataset contained minimal missing data, which were either filtered out or imputed where reasonable.
+-   **Missing Values**: The dataset had very few missing values, which were either removed or reasonably filled in.
 
 The cleaned dataset was saved in `.RData` format for reproducibility and faster processing in future sessions.
 
@@ -135,15 +134,15 @@ kable(head(eq_data, 10), caption = "Table 1: Sample of Pre-processed Earthquake 
 
 # 3. Analysis
 
-In this part of the project, we carefully examined the earthquake data to identify patterns and trends related to seismic activity in Turkey.
-We began by exploring the dataset to understand its overall quality and key characteristics, analyzing the distribution of earthquake magnitudes and depths, checking for any missing or unusual data, and preparing the data for further analysis.
-Next, we investigated how earthquake occurrences have evolved over time by grouping events by year to observe changes in frequency and strength over the 28-year period.
-Simultaneously, we mapped the spatial distribution of earthquakes across Turkey, which allowed us to pinpoint regions with higher seismic activity and identify clusters of frequent events.
-We also examined potential relationships between variables, such as the correlation between earthquake depth and magnitude.
-Finally, we applied clustering techniques and created heatmaps to highlight areas with intensified seismic activity.
-These visualizations helped us identify zones that might require closer monitoring or risk mitigation.
-Throughout the analysis, we utilized the R programming language and specialized packages for geospatial data handling and visualization.
-Our findings lay a foundation for more advanced seismic risk modeling and provide valuable insights for researchers and policymakers interested in Turkey’s earthquake patterns.
+In this part of the project, we took a closer look at Turkey’s earthquake data to spot trends and patterns in seismic activity.
+We started by getting familiar with the dataset—checking its overall structure, looking at the spread of magnitudes and depths, and making sure the data was clean enough to work with. There were a few missing values, but most of them wasn’t a big issue and were handled early on.
+
+Then, we grouped the earthquakes by year to see how their frequency and intensity changed over the 28-year period. This helped us track how things evolved over time. At the same time, we also mapped out where earthquakes were happening across the country, which helped us find hotspots and regions with repeated activity.
+
+We tried to see if any variables were related—for example, we looked at whether deeper earthquakes tend to be stronger, though the results weren’t always clear.
+Later on, we used some basic clustering methods and heatmaps to highlight areas with more intense seismic behavior. These visuals made it easier to figure out which regions might need more attention or monitoring.
+
+All the analysis was done in R, using tools that are great for working with spatial data and making visuals. Overall, the findings give a useful starting point for deeper studies and could help people working in planning, safety, or research to better understand Turkey’s earthquake patterns.
 
 ## 3.1 Exploratory Data Analysis
 
@@ -236,14 +235,16 @@ ggplot() +
 
 ### 3.2.1. Spatial Distribution of Earthquakes in Turkey: Top 10 Years by Frequency
 
-This set of maps shows where earthquakes happened during the ten years when Turkey experienced the most seismic activity.
-By looking closely at these particularly busy years, we get a clearer picture of how earthquake epicenters spread across different parts of the country during times of higher activity.
+This series of maps shows where earthquakes occurred during the ten years when Turkey experienced the highest levels of seismic activity.
+By focusing on these especially active years, we can get a better sense of how earthquake epicenters were spread out across different parts of the country during times when the ground was particularly restless.
 
-On each map, the earthquakes are colored according to their strength, making it easy to spot the bigger and more powerful ones.
-We also made sure that earthquakes with a magnitude greater than 5 stand out by showing them as larger points, so their importance isn’t missed.
+On each map, earthquakes are colored based on their magnitude, which makes it easier to pick out the stronger ones at a glance.
+To make sure significant events aren’t overlooked, we also displayed earthquakes over magnitude 5 as larger points that stand out more clearly.
 
-These maps help us see patterns and clusters where earthquakes tend to happen more often during these busy years.
-Understanding these hotspots is really important for evaluating risks and planning safety measures in the areas that need it the most.
+It’s important to keep in mind that the high number of earthquakes in some of these years might be partly due to swarms of aftershocks following major events. These aftershocks, while smaller, still contribute to the overall seismic activity and can create noticeable clusters in certain regions.
+
+These maps help us spot patterns—like which areas tend to shake more during active periods.
+Recognizing these hotspots is a key step for understanding risk and making smarter decisions about safety and planning in those regions.
 
 ```{r}
 library(ggplot2)
@@ -300,7 +301,7 @@ Note: In 1994, an earthquake occurred in the Marmara region of Turkey.
 Although it was a noticeable seismic event, it did not result in significant destruction or a high number of casualties compared to other major earthquakes in the country.
 Therefore, its impact is considered minor relative to catastrophic events such as those in 1999 and 2023.
 
-By cross-referencing our earthquake data with these well-documented events, we validate that the dataset effectively reflects the timing and intensity of Turkey’s major seismic disasters.
+By comparing our earthquake data with well-known seismic events in Turkey, we were able to confirm that the dataset accurately captures both the timing and strength of the country’s major earthquakes.
 This allows us to confidently use it as a basis for spatial and temporal analyses as well as for informing risk mitigation strategies.
 
 # 4. Results and Key Takeaways
@@ -308,7 +309,10 @@ This allows us to confidently use it as a basis for spatial and temporal analyse
 When we looked at earthquakes in Turkey between 1975 and 2023, we wanted to understand not just how often they happened but also where they were most intense.
 By combining the time and place of these events, we uncovered patterns that show which years were particularly active and which regions faced the most powerful shakes.
 These findings help us get a clearer picture of earthquake risks in Turkey and can guide efforts to better prepare and protect communities.
-Here are the main takeaways from our work: • This study takes a close look at the timing and locations of earthquakes in Turkey over nearly three decades, using detailed data from the USGS earthquake catalog.
+
+Here are the main takeaways from our work: 
+
+• This study takes a close look at the timing and locations of earthquakes in Turkey over nearly three decades, using detailed data from the USGS earthquake catalog.
 • We found that certain years stood out with more earthquake activity, and we mapped these events to highlight hotspots with frequent and strong quakes.
 • The dataset reflects real-life major earthquakes, like the devastating ones in 1999 and 2023, making our analysis grounded in actual seismic history.
 • By spotting clusters of big earthquakes, we identified areas that might need extra attention when it comes to risk planning and disaster readiness.
